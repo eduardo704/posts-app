@@ -14,7 +14,12 @@
     "skipLibCheck": true,
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
-    "paths": {}
+    "paths": {
+      "@app//libs/common-ui": ["libs/libs/common-ui/src/index.ts"],
+      "@app/common": ["libs/common/src/index.ts"],
+      "@app/common-ui": ["libs/common-ui/src/index.ts"],
+      "@app/posts": ["libs/posts/src/index.ts"]
+    }
   },
   "exclude": ["node_modules", "tmp"]
 }

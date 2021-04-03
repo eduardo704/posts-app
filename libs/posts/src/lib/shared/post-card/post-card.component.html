@@ -1,0 +1,9 @@
+<div
+  [class.bg-primary]="post.selected"
+  [class.bg-success]="!post.selected"
+  class="square"
+  (click)="select(post)"
+>
+  <span *ngIf="post.selected">{{ post.userId }}</span>
+  <span *ngIf="!post.selected">{{ post.id }}</span>
+</div>

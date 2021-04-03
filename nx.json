@@ -1,34 +1,26 @@
 {
   "implicitDependencies": {
     "angular.json": "*",
-    "package.json": {
-      "dependencies": "*",
-      "devDependencies": "*"
-    },
+    "package.json": { "dependencies": "*", "devDependencies": "*" },
     "tsconfig.base.json": "*",
     "tslint.json": "*",
     ".eslintrc.json": "*",
     "nx.json": "*"
   },
-  "affected": {
-    "defaultBase": "master"
-  },
-  "npmScope": "zivver",
+  "affected": { "defaultBase": "master" },
+  "npmScope": "app",
   "tasksRunnerOptions": {
     "default": {
       "runner": "@nrwl/workspace/tasks-runners/default",
-      "options": {
-        "cacheableOperations": ["build", "lint", "test", "e2e"]
-      }
+      "options": { "cacheableOperations": ["build", "lint", "test", "e2e"] }
     }
   },
   "projects": {
-    "zivver": {
-      "tags": []
-    },
-    "zivver-e2e": {
-      "tags": [],
-      "implicitDependencies": ["zivver"]
-    }
+    "app": { "tags": [] },
+    "app-e2e": { "tags": [], "implicitDependencies": ["app"] },
+    "-libs-common-ui": { "tags": [] },
+    "common": { "tags": [] },
+    "common-ui": { "tags": [] },
+    "posts": { "tags": [] }
   }
 }

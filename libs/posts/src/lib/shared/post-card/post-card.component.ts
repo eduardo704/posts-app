@@ -1,24 +1,23 @@
 import { PostState } from './../../model/post.model';
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Post } from '../../model/post.model';
 
 @Component({
   selector: 'app-post-card',
   templateUrl: './post-card.component.html',
-  styleUrls: ['./post-card.component.scss']
+  styleUrls: ['./post-card.component.scss'],
 })
 export class PostCardComponent implements OnInit {
   @Input()
-  post:PostState;
+  post: PostState;
 
-  constructor() { }
+  @Output() selected: EventEmitter<any> = new EventEmitter();
 
-  ngOnInit() {
+  constructor() {}
+
+  ngOnInit() {}
+
+  select(post: PostState) {
+    this.selected.emit(post);
   }
-
-  select(post:PostState){
-    const reverse=!post.selected;
-    post.selected= reverse;
-  }
-
 }

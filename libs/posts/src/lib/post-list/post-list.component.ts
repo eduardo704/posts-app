@@ -2,7 +2,7 @@ import { Post, PostState } from './../model/post.model';
 import { PostsService } from './../posts.service';
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
-import { map } from 'rxjs/operators';
+import { map, tap } from 'rxjs/operators';
 
 @Component({
   selector: 'app-post-list',
@@ -15,12 +15,13 @@ export class PostListComponent implements OnInit {
   constructor(private postsService: PostsService) {}
 
   ngOnInit(): void {
-    this.posts = this.postsService.getPosts().pipe(
-      map((posts) => {
-        return posts.map((post) => {
-          return { ...post, selected: false };
-        });
-      })
-    );
+    this.postsService.getPosts().subscribe();
+    this.posts = this.postsService.postState$.pipe(tap(posts=>{
+      console.log(posts)
+    }));
+  }
+
+  select(index){
+    this.postsService.setPostSelected(index+1);
   }
 }
